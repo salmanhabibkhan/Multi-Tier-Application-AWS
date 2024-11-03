@@ -1,0 +1,30 @@
+# React Frontend Configuration
+frontend:
+  image:
+    repository: habib0786/multi-tier-application
+    tag: latest
+  service:
+    port: 80
+
+# Node.js Backend Configuration
+backend:
+  image:
+    repository: habib0786/multi-tier-application
+    tag: latest-backend-mysql2
+  service:
+    port: 3000
+  env:
+    DB_HOST: mysql
+    DB_USER: root
+    DB_PASSWORD: my-secret-pw
+    DB_NAME: mydb
+
+# MySQL Database Configuration
+mysql:
+  image:
+    repository: mysql
+    tag: latest
+  rootPassword: my-secret-pw
+  dbName: mydb
+  persistence:
+    size: 1Gi
